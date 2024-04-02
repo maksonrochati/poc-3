@@ -1,0 +1,29 @@
+name: Cypress Tests Poc 1
+
+on: 
+    #push
+
+    workflow_dispatch:
+    #workflow_call:
+        #inputs:
+            #run-name:
+                #required: false
+                #description: 'Test'
+                #default: 'Teste completo'
+                #type: string
+
+jobs:
+
+  calling-workflow:
+    uses: maksonrochati/cypress-poc-2/.github/workflows/qa.yml@main
+
+    
+  cypress-run:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      #- name: Cypress run
+       # uses: cypress-io/github-action@v6
